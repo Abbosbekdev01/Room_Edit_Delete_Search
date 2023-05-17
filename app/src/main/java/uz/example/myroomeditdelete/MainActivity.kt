@@ -12,4 +12,8 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+
+    fun menuClick(myStudent: MyStudent, icMore: ImageView) {
+
+    }
 }
