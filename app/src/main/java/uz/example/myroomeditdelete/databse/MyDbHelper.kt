@@ -9,13 +9,14 @@ import uz.example.myroomeditdelete.models.MyStudent
 @Database(entities = [MyStudent::class], version = 1)
 abstract class MyDbHelper : RoomDatabase() {
 
-    abstract fun userDao(): StudentDao
+    abstract fun studentDao(): MyDaoInterface
 
-    companion object{
-        private var instance:MyDbHelper? = null
-        fun newInstance(context: Context):MyDbHelper{
-            if (instance == null){
-                instance = Room.databaseBuilder(context, MyDbHelper::class.java, "database_name")
+    companion object {
+        private var instance: MyDbHelper? = null
+
+        fun newInstance(context: Context): MyDbHelper {
+            if (instance == null) {
+                instance = Room.databaseBuilder(context, MyDbHelper::class.java, "student_db")
                     .fallbackToDestructiveMigration()
                     .allowMainThreadQueries()
                     .build()
@@ -23,5 +24,4 @@ abstract class MyDbHelper : RoomDatabase() {
             return instance!!
         }
     }
-
 }

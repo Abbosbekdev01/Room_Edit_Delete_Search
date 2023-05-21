@@ -6,11 +6,11 @@ import androidx.room.PrimaryKey
 @Entity
 class MyStudent {
 
+    @PrimaryKey(autoGenerate = true)
+    var id: Int? = null
+    var name: String? = null
+    var number: String? = null
 
-    @PrimaryKey
-    var id:Int? = null
-    var name:String? = null
-    var number:String? = null
 
     constructor(name: String?, number: String?) {
         this.name = name
@@ -18,6 +18,4 @@ class MyStudent {
     }
 
     constructor()
-
-
 }
